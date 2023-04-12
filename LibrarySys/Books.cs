@@ -74,6 +74,7 @@ namespace LibrarySys
             title.Text = datagrid.Rows[e.RowIndex].Cells["title"].Value.ToString();
             author.Text = datagrid.Rows[e.RowIndex].Cells["author"].Value.ToString();
             quantity1.Text = datagrid.Rows[e.RowIndex].Cells["quantity"].Value.ToString();
+            maxquanty.Text = datagrid.Rows[e.RowIndex].Cells["maxQuantity"].Value.ToString();
         }
 
         private void search_TextChanged(object sender, EventArgs e)
@@ -96,7 +97,7 @@ namespace LibrarySys
         {
             conn.Open();
 
-            OleDbCommand com = new OleDbCommand("Insert into book values ('" + bookNum.Text + "','" + title.Text + "','" + author.Text + "','" + quantity1.Text + "')", conn);
+            OleDbCommand com = new OleDbCommand("Insert into book values ('" + bookNum.Text + "','" + title.Text + "','" + author.Text + "','" + quantity1.Text + "','" + maxquanty.Text + "')", conn);
 
             com.ExecuteNonQuery();
 
@@ -112,6 +113,7 @@ namespace LibrarySys
             title.Clear();
             author.Clear();
             quantity1.Clear();
+            maxquanty.Clear();
         }
 
         private void update_Click(object sender, EventArgs e)

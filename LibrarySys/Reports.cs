@@ -166,8 +166,8 @@ namespace LibrarySys
         private void back_Click(object sender, EventArgs e)
         {
             MainPage mp = new MainPage();
-            mp.ShowDialog();
             this.Hide();
+            mp.ShowDialog();
         }
 
         private void button1_Click(object sender, EventArgs e)

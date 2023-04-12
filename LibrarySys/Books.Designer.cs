@@ -48,6 +48,8 @@
             this.search = new System.Windows.Forms.TextBox();
             this.back = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
+            this.maxquanty = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.datagrid)).BeginInit();
             this.SuspendLayout();
             // 
@@ -246,12 +248,31 @@
             this.label5.TabIndex = 50;
             this.label5.Text = "Books Section";
             // 
+            // maxquanty
+            // 
+            this.maxquanty.Location = new System.Drawing.Point(477, 236);
+            this.maxquanty.Name = "maxquanty";
+            this.maxquanty.Size = new System.Drawing.Size(134, 20);
+            this.maxquanty.TabIndex = 51;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("SF Pro Display", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(395, 239);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(78, 14);
+            this.label6.TabIndex = 52;
+            this.label6.Text = "MaxQuantity";
+            // 
             // Books
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MediumAquamarine;
             this.ClientSize = new System.Drawing.Size(753, 450);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.maxquanty);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.back);
             this.Controls.Add(this.label18);
@@ -303,5 +324,7 @@
         private System.Windows.Forms.TextBox search;
         private System.Windows.Forms.Button back;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox maxquanty;
+        private System.Windows.Forms.Label label6;
     }
 }

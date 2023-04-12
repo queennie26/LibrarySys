@@ -71,7 +71,7 @@ namespace LibrarySys
                     {
                         conn.Close();
                         conn.Open();
-                        OleDbCommand com = new OleDbCommand("UPDATE book SET Quantity= '" + newquantity + "', title= '" + titlee + "', author='" + authorr + "'  WHERE booknum = '" + no + "'", conn);
+                        OleDbCommand com = new OleDbCommand("UPDATE book SET quantity= '" + newquantity + "', title= '" + titlee + "', author='" + authorr + "'  WHERE booknum = '" + no + "'", conn);
                         com.ExecuteNonQuery();
 
                         conn.Close();
@@ -81,7 +81,7 @@ namespace LibrarySys
                         loadDatagrid();
 
                         conn.Open();
-                        OleDbCommand com1 = new OleDbCommand("INSERT INTO transaction ([transaction_type], [booknum], [title], [author], [Id_num], [name], [lastname], [transaction_date]) VALUES (@tansaction_type, @booknum, @title, @author, @Id_num, @name, @lastname, @transaction_date)", conn);
+                        OleDbCommand com1 = new OleDbCommand("INSERT INTO transactions ([transaction_type], [booknum], [title], [author], [Id_num], [name], [lastname], [transaction_date]) VALUES (@tansaction_type, @booknum, @title, @author, @Id_num, @name, @lastname, @transaction_date)", conn);
                         com1.Parameters.AddWithValue("@transaction_type", r);
                         com1.Parameters.AddWithValue("@booknum", no);
                         com1.Parameters.AddWithValue("@title", titlee);
@@ -194,7 +194,7 @@ namespace LibrarySys
                     // check if the username already exists
                     if (count > 0)
                     {
-                        OleDbCommand com = new OleDbCommand("UPDATE book SET Quantity= '" + newquantity + "', title= '" + titlee + "', author='" + authorr + "'  WHERE booknum = '" + no + "'", conn);
+                        OleDbCommand com = new OleDbCommand("UPDATE book SET quantity= '" + newquantity + "', title= '" + titlee + "', author='" + authorr + "'  WHERE booknum = '" + no + "'", conn);
                         com.ExecuteNonQuery();
 
                         conn.Close();
@@ -204,7 +204,7 @@ namespace LibrarySys
                         loadDatagrid();
 
                         conn.Open();
-                        OleDbCommand com1 = new OleDbCommand("INSERT INTO transaction ([transaction_type], [booknum], [title], [author], [Id_num], [name], [lastname], [transaction_date]) VALUES (@tansaction_type, @booknum, @title, @author, @Id_num, @name, @lastname, @transaction_date)", conn);
+                        OleDbCommand com1 = new OleDbCommand("INSERT INTO transactions ([transaction_type], [booknum], [title], [author], [Id_num], [name], [lastname], [transaction_date]) VALUES (@tansaction_type, @booknum, @title, @author, @Id_num, @name, @lastname, @transaction_date)", conn);
                         com1.Parameters.AddWithValue("@transaction_type", r);
                         com1.Parameters.AddWithValue("@booknum", no);
                         com1.Parameters.AddWithValue("@title", titlee);
@@ -279,8 +279,8 @@ namespace LibrarySys
         private void back_Click(object sender, EventArgs e)
         {
             MainPage mp = new MainPage();
-            mp.ShowDialog();
             this.Hide();
+            mp.ShowDialog();
         }
     }
 }
