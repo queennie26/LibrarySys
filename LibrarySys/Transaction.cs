@@ -152,6 +152,7 @@ namespace LibrarySys
             author.Text = "";
             title.Text = "";
             quantity.Text = "";
+            maxquanty.Text = "";
 
         }
 
