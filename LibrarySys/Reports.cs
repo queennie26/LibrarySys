@@ -13,7 +13,7 @@ namespace LibrarySys
 {
     public partial class Reports : Form
     {
-        private OleDbConnection conn;
+        OleDbConnection conn;
         OleDbCommand com;
         OleDbDataReader dr;
 
@@ -23,22 +23,26 @@ namespace LibrarySys
 
         public Reports()
         {
+            conn = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\\Users\\Lourdes\\source\\repos\\LibrarySys\\libsys.mdb");
             InitializeComponent();
+
             loadDatagrid();
-            conn = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\\Users\\Queennie\\OneDrive\\Documents\\libsys.mdb");
+            
         }
 
         private void Reports_Load(object sender, EventArgs e)
         {
             fillChart();
+            
         }
 
         private void loadDatagrid()
         {
             conn.Open();
 
-            OleDbCommand com = new OleDbCommand("Select * from transaction order by date desc", conn);
-            com.ExecuteNonQuery();
+            com = new OleDbCommand("Select * from transactions order by report_id desc", conn);
+            dr = com.ExecuteReader();
+            dr.Close();
 
             OleDbDataAdapter adap = new OleDbDataAdapter(com);
             DataTable tab = new DataTable();
@@ -50,85 +54,7 @@ namespace LibrarySys
 
         }
 
-        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
-        {
-            string curdhead = "LIBRARY REPORTS";
-            e.Graphics.DrawString(curdhead, new System.Drawing.Font("Book Antiqua", 9, FontStyle.Bold), Brushes.Black, 350, 50);
-
-            string l1 = "---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------";
-            e.Graphics.DrawString(l1, new System.Drawing.Font("Book Antiqua", 9, FontStyle.Bold), Brushes.Black, 0, 100);
-
-            string g1 = "transaction_type";
-            e.Graphics.DrawString(g1, new System.Drawing.Font("Book Antiqua", 9, FontStyle.Bold), Brushes.Black, 768, 140);
-
-            string g2 = "booknum";
-            e.Graphics.DrawString(g2, new System.Drawing.Font("Book Antiqua", 9, FontStyle.Bold), Brushes.Black, 425, 140);
-
-            string g3 = "Title";
-            e.Graphics.DrawString(g3, new System.Drawing.Font("Book Antiqua", 9, FontStyle.Bold), Brushes.Black, 550, 140);
-
-            string g4 = "Author";
-            e.Graphics.DrawString(g4, new System.Drawing.Font("Book Antiqua", 9, FontStyle.Bold), Brushes.Black, 680, 140);
-
-            string g5 = "Id_num";
-            e.Graphics.DrawString(g5, new System.Drawing.Font("Book Antiqua", 9, FontStyle.Bold), Brushes.Black, 150, 140);
-
-            string g6 = "First Name";
-            e.Graphics.DrawString(g6, new System.Drawing.Font("Book Antiqua", 9, FontStyle.Bold), Brushes.Black, 240, 140);
-
-            string g7 = "Last Name";
-            e.Graphics.DrawString(g7, new System.Drawing.Font("Book Antiqua", 9, FontStyle.Bold), Brushes.Black, 345, 140);
-
-            string g8 = "transaction_date";
-            e.Graphics.DrawString(g8, new System.Drawing.Font("Book Antiqua", 9, FontStyle.Bold), Brushes.Black, 65, 140);
-
-            string g9 = "Printed By: Admin";
-            e.Graphics.DrawString(g9, new System.Drawing.Font("Book Antiqua", 9, FontStyle.Bold), Brushes.Black, 640, 1050);
-
-            string l2 = "---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------";
-            e.Graphics.DrawString(l2, new System.Drawing.Font("Book Antiqua", 9, FontStyle.Bold), Brushes.Black, 0, 160);
-
-            int height = 165;
-            for (int l = numberOfItemsPrintedSoFar; l < datagrid.Rows.Count; l++)
-            {
-                numberOfItemsPerPage = numberOfItemsPerPage + 1;
-                if (numberOfItemsPerPage <= 50)
-                {
-                    numberOfItemsPrintedSoFar++;
-
-                    if (numberOfItemsPrintedSoFar <= datagrid.Rows.Count)
-                    {
-
-                        height += datagrid.Rows[0].Height;
-                        e.Graphics.DrawString(datagrid.Rows[l].Cells[0].FormattedValue.ToString(), datagrid.Font = new Font("Book Antiqua", 7), Brushes.Black, new RectangleF(20, height, 150, datagrid.Rows[0].Height), new StringFormat() { Alignment = StringAlignment.Center });
-                        e.Graphics.DrawString(datagrid.Rows[l].Cells[1].FormattedValue.ToString(), datagrid.Font = new Font("Book Antiqua", 7), Brushes.Black, new RectangleF(120, height, 150, datagrid.Rows[0].Height), new StringFormat() { Alignment = StringAlignment.Center });
-                        e.Graphics.DrawString(datagrid.Rows[l].Cells[2].FormattedValue.ToString(), datagrid.Font = new Font("Book Antiqua", 7), Brushes.Black, new RectangleF(200, height, 150, datagrid.Rows[0].Height), new StringFormat() { Alignment = StringAlignment.Center });
-                        e.Graphics.DrawString(datagrid.Rows[l].Cells[3].FormattedValue.ToString(), datagrid.Font = new Font("Book Antiqua", 7), Brushes.Black, new RectangleF(300, height, 150, datagrid.Rows[0].Height), new StringFormat() { Alignment = StringAlignment.Center });
-                        e.Graphics.DrawString(datagrid.Rows[l].Cells[4].FormattedValue.ToString(), datagrid.Font = new Font("Book Antiqua", 7), Brushes.Black, new RectangleF(380, height, 150, datagrid.Rows[0].Height), new StringFormat() { Alignment = StringAlignment.Center });
-                        e.Graphics.DrawString(datagrid.Rows[l].Cells[5].FormattedValue.ToString(), datagrid.Font = new Font("Book Antiqua", 7), Brushes.Black, new RectangleF(490, height, 150, datagrid.Rows[0].Height), new StringFormat() { Alignment = StringAlignment.Center });
-                        e.Graphics.DrawString(datagrid.Rows[l].Cells[6].FormattedValue.ToString(), datagrid.Font = new Font("Book Antiqua", 7), Brushes.Black, new RectangleF(630, height, 150, datagrid.Rows[0].Height), new StringFormat() { Alignment = StringAlignment.Center });
-                        e.Graphics.DrawString(datagrid.Rows[l].Cells[7].FormattedValue.ToString(), datagrid.Font = new Font("Book Antiqua", 7), Brushes.Black, new RectangleF(720, height, 150, datagrid.Rows[0].Height), new StringFormat() { Alignment = StringAlignment.Center });
-
-                    }
-                    else
-                    {
-                        e.HasMorePages = false;
-                    }
-
-                }
-                else
-                {
-                    numberOfItemsPerPage = 0;
-                    e.HasMorePages = true;
-                    return;
-
-                }
-
-
-            }
-            numberOfItemsPerPage = 0;
-            numberOfItemsPrintedSoFar = 0;
-        }
+        
 
         private void print_Click(object sender, EventArgs e)
         {
@@ -176,6 +102,99 @@ namespace LibrarySys
             MessageBox.Show("Log out Successfully.", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
             lg.Show();
             this.Hide();
+        }
+
+        private void printPreviewDialog1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void printDocument2_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+
+        }
+
+        private void printDocument1_PrintPage_1(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            string curdhead = "LIBRARY REPORTS";
+            e.Graphics.DrawString(curdhead, new System.Drawing.Font("Book Antiqua", 9, FontStyle.Bold), Brushes.Black, 350, 50);
+
+            string l1 = "---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------";
+            e.Graphics.DrawString(l1, new System.Drawing.Font("Book Antiqua", 9, FontStyle.Bold), Brushes.Black, 0, 100);
+
+            string g1 = "transaction_type";
+            e.Graphics.DrawString(g1, new System.Drawing.Font("Book Antiqua", 9, FontStyle.Bold), Brushes.Black, 65, 140);
+
+            string g2 = "transaction_type";
+            e.Graphics.DrawString(g2, new System.Drawing.Font("Book Antiqua", 9, FontStyle.Bold), Brushes.Black, 65, 140);
+
+            string g3 = "booknum";
+            e.Graphics.DrawString(g3, new System.Drawing.Font("Book Antiqua", 9, FontStyle.Bold), Brushes.Black, 150, 140);
+
+            string g4 = "Title";
+            e.Graphics.DrawString(g4, new System.Drawing.Font("Book Antiqua", 9, FontStyle.Bold), Brushes.Black, 240, 140);
+
+            string g5 = "Author";
+            e.Graphics.DrawString(g5, new System.Drawing.Font("Book Antiqua", 9, FontStyle.Bold), Brushes.Black, 345, 140);
+
+            string g6 = "Id_num";
+            e.Graphics.DrawString(g6, new System.Drawing.Font("Book Antiqua", 9, FontStyle.Bold), Brushes.Black, 425, 140);
+
+            string g7 = "First Name";
+            e.Graphics.DrawString(g7, new System.Drawing.Font("Book Antiqua", 9, FontStyle.Bold), Brushes.Black, 550, 140);
+
+            string g8 = "Last Name";
+            e.Graphics.DrawString(g8, new System.Drawing.Font("Book Antiqua", 9, FontStyle.Bold), Brushes.Black, 680, 140);
+
+            string g9 = "transaction_date";
+            e.Graphics.DrawString(g9, new System.Drawing.Font("Book Antiqua", 9, FontStyle.Bold), Brushes.Black, 768, 140);
+
+            string g10 = "Printed By: Admin";
+            e.Graphics.DrawString(g10, new System.Drawing.Font("Book Antiqua", 9, FontStyle.Bold), Brushes.Black, 640, 1050);
+
+            string l2 = "---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------";
+            e.Graphics.DrawString(l2, new System.Drawing.Font("Book Antiqua", 9, FontStyle.Bold), Brushes.Black, 0, 160);
+
+            int height = 165;
+            for (int l = numberOfItemsPrintedSoFar; l < datagrid.Rows.Count; l++)
+            {
+                numberOfItemsPerPage = numberOfItemsPerPage + 1;
+                if (numberOfItemsPerPage <= 50)
+                {
+                    numberOfItemsPrintedSoFar++;
+
+                    if (numberOfItemsPrintedSoFar <= datagrid.Rows.Count)
+                    {
+
+                        height += datagrid.Rows[0].Height;
+                        e.Graphics.DrawString(datagrid.Rows[l].Cells[0].FormattedValue.ToString(), datagrid.Font = new Font("Book Antiqua", 7), Brushes.Black, new RectangleF(20, height, 150, datagrid.Rows[0].Height), new StringFormat() { Alignment = StringAlignment.Center });
+                        e.Graphics.DrawString(datagrid.Rows[l].Cells[1].FormattedValue.ToString(), datagrid.Font = new Font("Book Antiqua", 7), Brushes.Black, new RectangleF(120, height, 150, datagrid.Rows[0].Height), new StringFormat() { Alignment = StringAlignment.Center });
+                        e.Graphics.DrawString(datagrid.Rows[l].Cells[2].FormattedValue.ToString(), datagrid.Font = new Font("Book Antiqua", 7), Brushes.Black, new RectangleF(200, height, 150, datagrid.Rows[0].Height), new StringFormat() { Alignment = StringAlignment.Center });
+                        e.Graphics.DrawString(datagrid.Rows[l].Cells[3].FormattedValue.ToString(), datagrid.Font = new Font("Book Antiqua", 7), Brushes.Black, new RectangleF(300, height, 150, datagrid.Rows[0].Height), new StringFormat() { Alignment = StringAlignment.Center });
+                        e.Graphics.DrawString(datagrid.Rows[l].Cells[4].FormattedValue.ToString(), datagrid.Font = new Font("Book Antiqua", 7), Brushes.Black, new RectangleF(380, height, 150, datagrid.Rows[0].Height), new StringFormat() { Alignment = StringAlignment.Center });
+                        e.Graphics.DrawString(datagrid.Rows[l].Cells[5].FormattedValue.ToString(), datagrid.Font = new Font("Book Antiqua", 7), Brushes.Black, new RectangleF(490, height, 150, datagrid.Rows[0].Height), new StringFormat() { Alignment = StringAlignment.Center });
+                        e.Graphics.DrawString(datagrid.Rows[l].Cells[6].FormattedValue.ToString(), datagrid.Font = new Font("Book Antiqua", 7), Brushes.Black, new RectangleF(630, height, 150, datagrid.Rows[0].Height), new StringFormat() { Alignment = StringAlignment.Center });
+                        e.Graphics.DrawString(datagrid.Rows[l].Cells[7].FormattedValue.ToString(), datagrid.Font = new Font("Book Antiqua", 7), Brushes.Black, new RectangleF(720, height, 150, datagrid.Rows[0].Height), new StringFormat() { Alignment = StringAlignment.Center });
+
+                    }
+                    else
+                    {
+                        e.HasMorePages = false;
+                    }
+
+                }
+                else
+                {
+                    numberOfItemsPerPage = 0;
+                    e.HasMorePages = true;
+                    return;
+
+                }
+
+
+            }
+            numberOfItemsPerPage = 0;
+            numberOfItemsPrintedSoFar = 0;
         }
     }
 }

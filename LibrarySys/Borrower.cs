@@ -21,7 +21,7 @@ namespace LibrarySys
         public Borrower()
         {
             InitializeComponent();
-            conn = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\\Users\\Queennie\\OneDrive\\Documents\\libsys.mdb");
+            conn = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\\Users\\Lourdes\\source\\repos\\LibrarySys\\libsys.mdb");
         }
 
         private void Borrower_Load(object sender, EventArgs e)
@@ -35,7 +35,7 @@ namespace LibrarySys
         {
             conn.Open();
 
-            OleDbCommand com = new OleDbCommand("Select * from book order by borrow_Id asc", conn);
+            OleDbCommand com = new OleDbCommand("Select * from borrower order by borrow_Id asc", conn);
             com.ExecuteNonQuery();
 
             OleDbDataAdapter adap = new OleDbDataAdapter(com);

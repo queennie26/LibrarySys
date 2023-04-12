@@ -19,7 +19,7 @@ namespace LibrarySys
         public Books()
         {
             InitializeComponent();
-            conn = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\\Users\\Queennie\\OneDrive\\Documents\\libsys.mdb");
+            conn = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\\Users\\Lourdes\\source\\repos\\LibrarySys\\libsys.mdb");
         }
 
         private void Books_Load(object sender, EventArgs e)

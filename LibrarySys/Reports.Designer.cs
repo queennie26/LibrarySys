@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Reports));
             this.search = new System.Windows.Forms.TextBox();
             this.datagrid = new System.Windows.Forms.DataGridView();
@@ -50,46 +50,52 @@
             // 
             // search
             // 
-            this.search.Location = new System.Drawing.Point(22, 64);
+            this.search.Location = new System.Drawing.Point(29, 79);
+            this.search.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.search.Name = "search";
-            this.search.Size = new System.Drawing.Size(406, 20);
+            this.search.Size = new System.Drawing.Size(540, 22);
             this.search.TabIndex = 0;
             // 
             // datagrid
             // 
             this.datagrid.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.datagrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.datagrid.Location = new System.Drawing.Point(12, 105);
+            this.datagrid.Location = new System.Drawing.Point(16, 129);
+            this.datagrid.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.datagrid.Name = "datagrid";
-            this.datagrid.Size = new System.Drawing.Size(776, 257);
+            this.datagrid.RowHeadersWidth = 51;
+            this.datagrid.Size = new System.Drawing.Size(1035, 316);
             this.datagrid.TabIndex = 1;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("SF Pro Display", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(19, 43);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(25, 53);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(55, 18);
+            this.label1.Size = new System.Drawing.Size(76, 24);
             this.label1.TabIndex = 2;
             this.label1.Text = "Search";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("SF Pro Display", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(505, 6);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(673, 7);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(79, 23);
+            this.label2.Size = new System.Drawing.Size(105, 29);
             this.label2.TabIndex = 3;
             this.label2.Text = "Reports";
             // 
             // printrev
             // 
-            this.printrev.Font = new System.Drawing.Font("SF Pro Display", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.printrev.Location = new System.Drawing.Point(509, 61);
+            this.printrev.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.printrev.Location = new System.Drawing.Point(679, 75);
+            this.printrev.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.printrev.Name = "printrev";
-            this.printrev.Size = new System.Drawing.Size(115, 23);
+            this.printrev.Size = new System.Drawing.Size(153, 28);
             this.printrev.TabIndex = 4;
             this.printrev.Text = "Print Review";
             this.printrev.UseVisualStyleBackColor = true;
@@ -97,28 +103,39 @@
             // 
             // print
             // 
-            this.print.Font = new System.Drawing.Font("SF Pro Display", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.print.Location = new System.Drawing.Point(653, 61);
+            this.print.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.print.Location = new System.Drawing.Point(871, 75);
+            this.print.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.print.Name = "print";
-            this.print.Size = new System.Drawing.Size(115, 23);
+            this.print.Size = new System.Drawing.Size(153, 28);
             this.print.TabIndex = 5;
             this.print.Text = "Print";
             this.print.UseVisualStyleBackColor = true;
             this.print.Click += new System.EventHandler(this.print_Click);
             // 
+            // printDocument1
+            // 
+            this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage_1);
+            // 
+            // printDocument2
+            // 
+            this.printDocument2.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument2_PrintPage);
+            // 
             // chart
             // 
-            chartArea5.Name = "ChartArea1";
-            this.chart.ChartAreas.Add(chartArea5);
-            legend5.Name = "Legend1";
-            this.chart.Legends.Add(legend5);
-            this.chart.Location = new System.Drawing.Point(794, 105);
+            chartArea1.Name = "ChartArea1";
+            this.chart.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chart.Legends.Add(legend1);
+            this.chart.Location = new System.Drawing.Point(1059, 129);
+            this.chart.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.chart.Name = "chart";
-            series5.ChartArea = "ChartArea1";
-            series5.Legend = "Legend1";
-            series5.Name = "Series1";
-            this.chart.Series.Add(series5);
-            this.chart.Size = new System.Drawing.Size(379, 257);
+            series1.ChartArea = "ChartArea1";
+            series1.IsValueShownAsLabel = true;
+            series1.Legend = "Legend1";
+            series1.Name = "Books";
+            this.chart.Series.Add(series1);
+            this.chart.Size = new System.Drawing.Size(505, 316);
             this.chart.TabIndex = 6;
             this.chart.Text = "chart1";
             // 
@@ -127,20 +144,23 @@
             this.printPreviewDialog1.AutoScrollMargin = new System.Drawing.Size(0, 0);
             this.printPreviewDialog1.AutoScrollMinSize = new System.Drawing.Size(0, 0);
             this.printPreviewDialog1.ClientSize = new System.Drawing.Size(400, 300);
+            this.printPreviewDialog1.Document = this.printDocument1;
             this.printPreviewDialog1.Enabled = true;
             this.printPreviewDialog1.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog1.Icon")));
             this.printPreviewDialog1.Name = "printPreviewDialog1";
             this.printPreviewDialog1.Visible = false;
+            this.printPreviewDialog1.Load += new System.EventHandler(this.printPreviewDialog1_Load);
             // 
             // back
             // 
             this.back.BackColor = System.Drawing.Color.Black;
-            this.back.Font = new System.Drawing.Font("SF Pro Display", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.back.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.back.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.back.Location = new System.Drawing.Point(12, 7);
+            this.back.Location = new System.Drawing.Point(16, 9);
+            this.back.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.back.Name = "back";
-            this.back.Padding = new System.Windows.Forms.Padding(14, 0, 0, 0);
-            this.back.Size = new System.Drawing.Size(75, 25);
+            this.back.Padding = new System.Windows.Forms.Padding(19, 0, 0, 0);
+            this.back.Size = new System.Drawing.Size(100, 31);
             this.back.TabIndex = 50;
             this.back.Text = "Back";
             this.back.UseVisualStyleBackColor = false;
@@ -148,10 +168,11 @@
             // 
             // button1
             // 
-            this.button1.Font = new System.Drawing.Font("SF Pro Display", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(1079, 9);
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(1439, 11);
+            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(94, 23);
+            this.button1.Size = new System.Drawing.Size(125, 28);
             this.button1.TabIndex = 51;
             this.button1.Text = "Log Out>";
             this.button1.UseVisualStyleBackColor = true;
@@ -159,10 +180,10 @@
             // 
             // Reports
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSlateGray;
-            this.ClientSize = new System.Drawing.Size(1208, 388);
+            this.ClientSize = new System.Drawing.Size(1611, 478);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.back);
             this.Controls.Add(this.chart);
@@ -172,6 +193,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.datagrid);
             this.Controls.Add(this.search);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Reports";
             this.Text = "Reports";
             this.Load += new System.EventHandler(this.Reports_Load);
