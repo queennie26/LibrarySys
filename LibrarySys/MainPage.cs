@@ -39,15 +39,17 @@ namespace LibrarySys
         private void tRANSACTIONToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Transaction tran = new Transaction();
-            tran.ShowDialog();
             this.Hide();
+            tran.ShowDialog();
+            
         }
 
         private void rEORTSToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Reports rep = new Reports();
-            rep.ShowDialog();
             this.Hide();
+            rep.ShowDialog();
+          
         }
     }
 }
