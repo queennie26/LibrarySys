@@ -25,7 +25,7 @@ namespace LibrarySys
 
         private void Transaction_Load(object sender, EventArgs e)
         {
-
+            loadDatagrid();
         }
        
 
@@ -81,7 +81,7 @@ namespace LibrarySys
                         loadDatagrid();
 
                         conn.Open();
-                        OleDbCommand com1 = new OleDbCommand("INSERT INTO transaction ([transaction_type], [booknum], [title], [author], [name], [lastname], [transaction_date]) VALUES (@tansaction_type, @booknum, @title, @author, @name, @lastname, @transaction_date)", conn);
+                        OleDbCommand com1 = new OleDbCommand("INSERT INTO transaction ([transaction_type], [booknum], [title], [author], [Id_num], [name], [lastname], [transaction_date]) VALUES (@tansaction_type, @booknum, @title, @author, @Id_num, @name, @lastname, @transaction_date)", conn);
                         com1.Parameters.AddWithValue("@transaction_type", r);
                         com1.Parameters.AddWithValue("@booknum", no);
                         com1.Parameters.AddWithValue("@title", titlee);
@@ -204,7 +204,7 @@ namespace LibrarySys
                         loadDatagrid();
 
                         conn.Open();
-                        OleDbCommand com1 = new OleDbCommand("INSERT INTO transaction ([transaction_type], [booknum], [title], [author], [name], [lastname], [transaction_date]) VALUES (@tansaction_type, @booknum, @title, @author, @name, @lastname, @transaction_date)", conn);
+                        OleDbCommand com1 = new OleDbCommand("INSERT INTO transaction ([transaction_type], [booknum], [title], [author], [Id_num], [name], [lastname], [transaction_date]) VALUES (@tansaction_type, @booknum, @title, @author, @Id_num, @name, @lastname, @transaction_date)", conn);
                         com1.Parameters.AddWithValue("@transaction_type", r);
                         com1.Parameters.AddWithValue("@booknum", no);
                         com1.Parameters.AddWithValue("@title", titlee);
